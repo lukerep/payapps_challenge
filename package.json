@@ -1,0 +1,19 @@
+{
+  "name": "payapps_challenge",
+  "version": "1.0.0",
+  "description": "Payapps tech challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukerep/payapps_challenge.git"
+  },
+  "author": "Luke Rep-Baihelfer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukerep/payapps_challenge/issues"
+  },
+  "homepage": "https://github.com/lukerep/payapps_challenge#readme"
+}
