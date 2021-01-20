@@ -1,25 +1,25 @@
 const express = require('express');
-const helmet = require('helmet');
-const morgan = require('morgan');
+const helmet = require('helmet'); // Helmet for API security
+const morgan = require('morgan'); // Morgan for API logging
+const bodyParser = require('body-parser'); // To help handling incoming data
+
+const dataHandler = require('./dataHandler/dataHandler');
 
 const app = express();
 app.use(helmet());
 app.use(morgan('common'));
+app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-	return res.send('Received a GET HTTP method');
-});
+app.route('/contract/:id')
+	.get(dataHandler.getContract)
+	.put(dataHandler.putContract)
+	.post(dataHandler.postContract)
+	.delete(dataHandler.deleteContract);
 
-app.post('/', (req, res) => {
-	return res.send('Received a POST HTTP method');
-});
+// app.route('/claim/:id')
+// 	.get((req, res) => {
 
-app.put('/', (req, res) => {
-	return res.send('Received a PUT HTTP method');
-});
-app.delete('/', (req, res) => {
-	return res.send('Received a DELETE HTTP method');
-});
+// 	})
 
 app.listen(process.env.PORT || 3000, () =>
 	console.log(`Example app listening on port ${process.env.PORT || 3000}!`),
