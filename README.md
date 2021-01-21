@@ -1,4 +1,5 @@
 # Payapps Tech Challenge - (Luke Rep-Baihelfer)
+![Unit test status](https://github.com/lukerep/payapps_challenge/workflows/Node.js%20CI/badge.svg)
 
 ## Build instructions (using Bash):
 ```
