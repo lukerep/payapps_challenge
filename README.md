@@ -24,3 +24,9 @@ npm run start:dev
 ```
 npm run lint
 ```
+
+## Running testing:
+Note that this also runs linting as part of the pre-test
+```
+npm run test
+```
