@@ -8,11 +8,13 @@ npm install
 ```
 
 ## Run instructions (production):
+This will start the application on port `3000` unless a `PORT` environment variable is provided.
 ```
 npm run start
 ```
 
 ## Run instructions (development):
+This will start the application on port `3000` unless a `PORT` environment variable is provided.
 This runs the application via Nodemon allowing the application to live update when code changes are made during development.
 ```
 npm run start:dev
