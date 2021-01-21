@@ -1,9 +1,10 @@
 const low = require('lowdb');
+const Memory = require('lowdb/adapters/Memory');
 const FileSync = require('lowdb/adapters/FileSync');
 const dataCreator = require('./dataCreator');
 
-const adapter = new FileSync('data/data.json');
-const db = low(adapter);
+// If we are in a test environment, use the database in Memory, otherwise use the files
+const db = low(process.env.NOD_ENV === 'test' ? new Memory() : new FileSync('data/data.json'));
 
 // Sets up database with some entry/s if the database file does not exist yet
 db.defaults({

@@ -1,6 +1,11 @@
 const { v4: uuidv4 } = require('uuid');
 
 const createContract = (contractData) => {
+	// Check that name and address properties were provided.
+	if (!contractData.name || !contractData.address) {
+		throw new Error('Error: no name or address properties provided.');
+	}
+
 	let lines = [];
 
 	if (contractData.lines && Array.isArray(contractData.lines)) {
@@ -31,7 +36,7 @@ const createClaim = (claimData, contract) => {
 
 	// Going through each line and checking it is valid in reference to the contract
 	claimData.lines.forEach((line) => {
-		if (line.lineIndex > contract.lines.length) {
+		if (line.lineIndex > contract.lines.length - 1) {
 			throw new Error(`Error: Your claim for lineIndex: ${line.lineIndex} does not exist in the specified contract.`);
 		}
 		if (line.claimAmount > contract.lines[line.lineIndex].currentValue) {
