@@ -1,7 +1,6 @@
 const dataHandler = require('./lowdbDataHandler');
 
 const searchContracts = (req, res) => {
-	// Matching for a provided 'name' field and an 'address' field within the header field (case insensitive)
 	const data = dataHandler.searchContracts(req.body);
 
 	return res.send(data);
@@ -52,10 +51,17 @@ const deleteContract = (req, res) => {
 	return res.sendStatus(data.length ? 200 : 404);
 };
 
+const searchClaims = (req, res) => {
+	const data = dataHandler.searchClaims(req.body);
+
+	return res.send(data);
+}
+
 module.exports = {
 	searchContracts,
 	getContract,
 	putContract,
 	postContract,
-	deleteContract
+	deleteContract,
+	searchClaims
 };

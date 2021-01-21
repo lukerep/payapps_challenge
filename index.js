@@ -24,6 +24,9 @@ app.route('/contracts')
 
 // 	})
 
+app.route('/claims')
+	.get(dataHandler.searchClaims);
+
 app.listen(process.env.PORT || 3000, () =>
 	console.log(`Example app listening on port ${process.env.PORT || 3000}!`),
 );
