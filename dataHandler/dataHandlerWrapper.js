@@ -1,7 +1,7 @@
 const dataHandler = require('./lowdbDataHandler');
 
 const searchContracts = (req, res) => {
-	const data = dataHandler.searchContracts(req.body);
+	const data = dataHandler.searchContracts(req.query);
 
 	return res.send(data);
 };
@@ -52,7 +52,7 @@ const deleteContract = (req, res) => {
 };
 
 const searchClaims = (req, res) => {
-	const data = dataHandler.searchClaims(req.body);
+	const data = dataHandler.searchClaims(req.query);
 
 	return res.send(data);
 };
