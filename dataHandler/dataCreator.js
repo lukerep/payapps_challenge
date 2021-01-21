@@ -8,7 +8,7 @@ const createContract = (contractData) => {
 
 	let lines = [];
 
-	if (contractData.lines && Array.isArray(contractData.lines)) {
+	if (Array.isArray(contractData.lines)) {
 		lines = contractData.lines;
 	}
 

@@ -32,8 +32,8 @@ app.route('/claim/:id?')
 app.route('/claims')
 	.get(dataHandler.searchClaims);
 
-// Run our app on the process.env.PORT if provided, otherwise use port 3000
-const portNum = process.env.PORT || 3000;
+// Run our app on the process.env.PORT if provided, otherwise use port 4000
+const portNum = process.env.PORT || 4000;
 app.listen(portNum, () =>
 	console.log(`Payapps Challenge listening on port ${portNum}!`),
 );
