@@ -16,34 +16,50 @@ db.defaults({
 				address: 'Melbourne'
 			},
 			lines: [
-				{ text: 'Line 1', value: 1000 },
-				{ text: 'Line 2', value: 2000 },
+				{ text: 'Line 1', originalValue: 1000, currentValue: 1000 },
+				{ text: 'Line 2', originalValue: 1000, currentValue: 2000 },
 			]
 		}
 	]
 }).write();
 
+const searchContracts = (req, res) => {
+	// Matching for a provided 'name' field and an 'address' field within the header field (case insensitive)
+	const data = db.get('contracts').filter(({header}) => {
+		return (req.body.name ? header.name.toLowerCase().includes(req.body.name.toLowerCase()) : true) &&
+		(req.body.address ? header.address.toLowerCase().includes(req.body.address.toLowerCase()) : true)
+	}).value();
+
+	return res.send(data);
+};
+
 const getContract = (req, res) => {
 	const id = req.params.id;
-	return res.send(db.get('contracts').find({ header: {name: id} }).value() || 404);
+	const data = db.get('contracts').find({id}).value();
+
+	return data ? res.send(data) : res.sendStatus(404);
 };
 
 const putContract = (req, res) => {
 	const id = req.params.id;
-	res.send(id);
+
+	return res.send(id);
 };
 
 const postContract = (req, res) => {
 	const id = req.params.id;
-	res.send(id);
+
+	return res.send(id);
 };
 
 const deleteContract = (req, res) => {
 	const id = req.params.id;
-	res.send(id);
+
+	return res.send(id);
 };
 
 module.exports = {
+	searchContracts,
 	getContract,
 	putContract,
 	postContract,

@@ -16,6 +16,9 @@ app.route('/contract/:id')
 	.post(dataHandler.postContract)
 	.delete(dataHandler.deleteContract);
 
+app.route('/contracts')
+	.get(dataHandler.searchContracts);
+
 // app.route('/claim/:id')
 // 	.get((req, res) => {
 
